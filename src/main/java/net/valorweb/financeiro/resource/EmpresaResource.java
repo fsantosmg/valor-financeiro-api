@@ -1,7 +1,7 @@
 package net.valorweb.financeiro.resource;
 
-import net.valorweb.financeiro.model.Conta;
-import net.valorweb.financeiro.service.ContaService;
+import net.valorweb.financeiro.model.Empresa;
+import net.valorweb.financeiro.service.EmpresaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/contas")
-public class ContaResource {
+@RequestMapping(value = "/empresas")
+public class EmpresaResource {
 
     @Autowired
-    ContaService service;
+    EmpresaService service;
 
     @GetMapping
-    public ResponseEntity<List<Conta>> listAll(){
+    public ResponseEntity<List<Empresa>> listAll(){
 
         return ResponseEntity.ok().body(service.findAll());
 
@@ -26,7 +26,7 @@ public class ContaResource {
 
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
-    public Conta create(@RequestBody Conta obj){
+    public Empresa create(@RequestBody Empresa obj){
        return service.save(obj);
     }
 

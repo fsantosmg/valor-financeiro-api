@@ -1,4 +1,4 @@
-package net.valorweb.financeiro.model.config;
+package net.valorweb.financeiro.config;
 
 import net.valorweb.financeiro.service.DBService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +22,7 @@ public class DevConfig {
     @Bean
     public boolean instantiateDatabase() throws ParseException {
 
-        if ("create".equals(dbStrategy)) {
+        if ("create-drop".equals(dbStrategy)) {
 
             dbService.instantiateTestDataBase();
             return true;

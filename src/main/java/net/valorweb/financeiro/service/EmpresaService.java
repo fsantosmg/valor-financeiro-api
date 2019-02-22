@@ -1,24 +1,23 @@
 package net.valorweb.financeiro.service;
 
-import net.valorweb.financeiro.model.Conta;
-import net.valorweb.financeiro.repository.ContaRepository;
+import net.valorweb.financeiro.model.Empresa;
+import net.valorweb.financeiro.repository.EmpresaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
-public class ContaService {
+public class EmpresaService {
 
     @Autowired
-    ContaRepository repository;
+    EmpresaRepository repository;
 
-    public List<Conta> findAll() {
+    public List<Empresa> findAll() {
         return repository.findAll();
     }
 
-    public Conta save(Conta obj) {
+    public Empresa save(Empresa obj) {
         return repository.save(obj);
     }
 
@@ -27,7 +26,7 @@ public class ContaService {
         repository.delete(findById(id));
     }
 
-    public Conta findById(Long id) {
+    public Empresa findById(Long id) {
 
         return repository.findById(id).orElse(null);
     }
